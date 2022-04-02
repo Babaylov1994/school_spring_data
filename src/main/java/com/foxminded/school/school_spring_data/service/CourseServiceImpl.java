@@ -18,24 +18,24 @@ public class CourseServiceImpl implements CourseService {
     @Override
     @Transactional
     public Optional<List<Course>> getAll() {
-        return courseDao.getAll();
+        return Optional.ofNullable(courseDao.findAll());
     }
 
     @Override
     @Transactional
     public Optional<Course> getById(int id) {
-        return courseDao.getById(id);
+        return courseDao.findById(id);
     }
 
     @Override
     @Transactional
     public void create(Course course) {
-        courseDao.create(course);
+        courseDao.save(course);
     }
 
     @Override
     @Transactional
     public void delete(int id) {
-        courseDao.delete(id);
+        courseDao.deleteById(id);
     }
 }

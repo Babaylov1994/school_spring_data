@@ -1,17 +1,10 @@
 package com.foxminded.school.school_spring_data.dao;
 
 import com.foxminded.school.school_spring_data.entity.Course;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
+@Repository
+public interface CourseDao extends JpaRepository<Course, Integer> {
 
-public interface CourseDao {
-
-    Optional<List<Course>> getAll();
-
-    Optional<Course> getById(int id);
-
-    void create(Course course);
-
-    void delete(int id);
 }

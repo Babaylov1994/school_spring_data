@@ -18,24 +18,24 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     @Transactional
     public Optional<List<Teacher>> getAll() {
-        return teacherDao.getAll();
+        return Optional.ofNullable(teacherDao.findAll());
     }
 
     @Override
     @Transactional
     public Optional<Teacher> getById(int id) {
-        return teacherDao.getById(id);
+        return teacherDao.findById(id);
     }
 
     @Override
     @Transactional
     public void create(Teacher teacher) {
-        teacherDao.create(teacher);
+        teacherDao.save(teacher);
     }
 
     @Override
     @Transactional
     public void delete(int id) {
-        teacherDao.delete(id);
+        teacherDao.deleteById(id);
     }
 }

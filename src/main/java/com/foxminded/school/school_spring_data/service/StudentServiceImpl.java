@@ -18,24 +18,24 @@ public class StudentServiceImpl implements StudentService {
     @Override
     @Transactional
     public Optional<List<Student>> getAll() {
-        return studentDao.getAll();
+        return Optional.ofNullable(studentDao.findAll());
     }
 
     @Override
     @Transactional
     public Optional<Student> getById(int id) {
-        return studentDao.getById(id);
+        return studentDao.findById(id);
     }
 
     @Override
     @Transactional
     public void create(Student student) {
-        studentDao.create(student);
+        studentDao.save(student);
     }
 
     @Override
     @Transactional
     public void delete(int id) {
-        studentDao.delete(id);
+        studentDao.deleteById(id);
     }
 }

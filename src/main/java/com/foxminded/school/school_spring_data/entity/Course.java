@@ -23,7 +23,6 @@ public class Course {
     )
     private List<Student> studentList;
 
-
     public Course() {
     }
 
